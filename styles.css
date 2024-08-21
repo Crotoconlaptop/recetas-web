@@ -9,11 +9,12 @@ body {
     background-color: #2E2E2E; /* Gris Oscuro */
     color: #EAEAEA; /* Gris Claro para el texto */
     overflow-x: hidden;
+    overflow-y: auto; /* Permite el desplazamiento vertical */
+    display: flex;
+    flex-direction: column; /* Asegura que los elementos se apilen verticalmente */
     
 }
-html, body {
-    overflow-y: auto;
-}
+
 
 
 .hidden {
@@ -119,19 +120,4 @@ ul li:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-@media (max-width: 768px) {
-    #b1, #b2 {
-        position: fixed;
-        bottom: 10px;
-        left: 50%;
-        transform: translateX(-100%);
-        transform: translatey(150%);
-        z-index: 1000;
-    }
 
-    #menu-contenedor {
-        max-height: 80vh;
-        overflow-y: auto;
-        padding-bottom: 60px; /* Espacio para el botón fijo */
-    }
-}
