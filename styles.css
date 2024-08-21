@@ -8,12 +8,17 @@ body {
     height: 100vh;
     background-color: #2E2E2E; /* Gris Oscuro */
     color: #EAEAEA; /* Gris Claro para el texto */
+    overflow-x: hidden;
     
+}
+html, body {
+    overflow-y: auto;
 }
 
 
 .hidden {
     display: none;
+
 }
 
 #main-menu {
@@ -42,6 +47,7 @@ body {
 #bar-menu:not(.hidden), #cocktail-details:not(.hidden), #main-menu:not(.hidden) {
     opacity: 1;
     transform: translateY(0);
+    
 }
 
 /* Estilo del texto de ingredientes y preparación */
@@ -86,6 +92,7 @@ button {
 ul {
     list-style: none;
     padding: 0;
+    
 }
 
 ul li {
@@ -95,6 +102,7 @@ ul li {
     border: 1px solid #ddd;
     border-radius: 5px;
     cursor: pointer;
+    
 }
 
 ul li:hover {
@@ -109,4 +117,21 @@ ul li:hover {
     height: auto;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    #b1, #b2 {
+        position: fixed;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-100%);
+        transform: translatey(150%);
+        z-index: 1000;
+    }
+
+    #menu-contenedor {
+        max-height: 80vh;
+        overflow-y: auto;
+        padding-bottom: 60px; /* Espacio para el botón fijo */
+    }
 }
