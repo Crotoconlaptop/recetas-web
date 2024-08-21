@@ -1,0 +1,110 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #2E2E2E; /* Gris Oscuro */
+    color: #EAEAEA; /* Gris Claro para el texto */
+}
+
+.hidden {
+    display: none;
+}
+
+#main-menu {
+    display: flex;
+    flex-direction: column; /* Dispone los botones en una columna */
+    align-items: center; /* Centra los botones horizontalmente */
+    justify-content: center; /* Centra los botones verticalmente en la pantalla */
+    height: 100vh; /* Asegura que el contenedor ocupe toda la altura de la ventana */
+    text-align: center; /* Centra el texto del título */
+    position: absolute; /* Asegura que el contenedor principal se posicione correctamente */
+    width: 100%; /* Ocupa el ancho completo de la pantalla */
+}
+
+#main-menu h1 {
+    margin-bottom: 20px;
+    color: #ddd; /* Gris Claro */
+}
+
+/* Transiciones suaves para los menús */
+#bar-menu, #cocktail-details, #main-menu {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+#bar-menu:not(.hidden), #cocktail-details:not(.hidden), #main-menu:not(.hidden) {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Estilo del texto de ingredientes y preparación */
+#ingredients, #preparation {
+    margin: 10px 20px; /* Margen pequeño alrededor del texto */
+    line-height: 1.5; /* Mejorar la legibilidad */
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+.bar-button {
+    padding: 15px 30px;
+    margin: 10px 0;
+    font-size: 18px;
+    background-color: #007bff; /* Azul Brillante */
+    color: #FFFFFF; /* Blanco */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra */
+}
+/* Efecto hover para los botones */
+.bar-button:hover {
+    background-color: #0056b3; /* Azul Oscuro */
+}
+
+button {
+    margin: 10px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    padding: 10px;
+    margin: 5px;
+    background-color: #0056b3;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+ul li:hover {
+    background-color: #e9ecef;
+}
+
+/* Agregar estilo para la imagen del trago */
+#cocktail-image {
+    display: block;
+    margin: 20px auto; /* Auto margenes horizontales para centrar */
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

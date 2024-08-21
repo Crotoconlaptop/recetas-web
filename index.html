@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOCKTAILS AND PREPARATIONS GUIDE</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+        <div id="main-menu">
+            <h1>Mocktails<br/> and<br/> Preparations<br/> Guide</h1>
+            <button class="bar-button" onclick="showBarMenu('jackie')">Jackie</button>
+            <button class="bar-button" onclick="showBarMenu('stregis')">St. Regis Bar</button>
+        </div>
+
+    
+
+    <div id="bar-menu" class="hidden">
+        <button onclick="backToMain()">Back</button>
+        <h2 id="bar-title"></h2>
+        <ul id="cocktails-list"></ul>
+    </div>
+
+    <div id="cocktail-details" class="hidden">
+        <button onclick="backToBarMenu()">Back</button>
+        <h2 id="cocktail-title"></h2>
+        <p id="ingredients"></p>
+        <p id="preparation"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
