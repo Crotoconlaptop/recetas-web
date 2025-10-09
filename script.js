@@ -1,4 +1,15 @@
-const bars = {
+document.addEventListener("DOMContentLoaded", () => {
+  const mainMenu = document.getElementById("main-menu");
+  const barMenu = document.getElementById("bar-menu");
+  const cocktailDetails = document.getElementById("cocktail-details");
+  const barTitle = document.getElementById("bar-title");
+  const cocktailsList = document.getElementById("cocktails-list");
+  const cocktailTitle = document.getElementById("cocktail-title");
+  const ingredientsEl = document.getElementById("ingredients");
+  const preparationEl = document.getElementById("preparation");
+  const cocktailImage = document.getElementById("cocktail-image");
+
+  const bars = {  // 👇 tus datos completos
     jackie: [
         { 
             name: "POLAR", 
@@ -183,63 +194,52 @@ const bars = {
             image: "images/no-image.jpg" 
         },
     ]
-};
+  };
 
+  function showBarMenu(bar) {
+    mainMenu.classList.add("hidden");
+    barMenu.classList.remove("hidden");
+    cocktailDetails.classList.add("hidden");
 
-function showBarMenu(bar) {
-    document.getElementById("main-menu").classList.add("hidden");
-    document.getElementById("bar-menu").classList.remove("hidden");
-
-    const barTitle = bar === 'jackie' ? "Jackie" : "St. Regis Bar";
-    document.getElementById("bar-title").innerText = barTitle;
-
-    const cocktailsList = document.getElementById("cocktails-list");
+    barTitle.innerText = bar === "jackie" ? "Jackie" : "St. Regis Bar";
     cocktailsList.innerHTML = "";
 
     bars[bar].forEach(cocktail => {
-        const li = document.createElement("li");
-        li.innerText = cocktail.name;
-        li.onclick = () => showCocktailDetails(cocktail);
-        cocktailsList.appendChild(li);
+      const li = document.createElement("li");
+      li.innerText = cocktail.name;
+      li.addEventListener("click", () => showCocktailDetails(cocktail));
+      cocktailsList.appendChild(li);
     });
-}
 
-function showCocktailDetails(cocktail) {
-    document.getElementById("bar-menu").classList.add("hidden");
-    document.getElementById("cocktail-details").classList.remove("hidden");
+    barMenu.scrollTop = 0; // 🔹 resetea scroll
+  }
 
-    document.getElementById("cocktail-title").innerText = cocktail.name;
-    document.getElementById("ingredients").innerText = "Ingredients: " + cocktail.ingredients;
-    document.getElementById("preparation").innerText = "Preparation: " + cocktail.preparation;
+  function showCocktailDetails(cocktail) {
+    barMenu.classList.add("hidden");
+    cocktailDetails.classList.remove("hidden");
 
-    // Remover imagen anterior si existe
-    const existingImage = document.getElementById("cocktail-image");
-    if (existingImage) {
-        existingImage.remove();
-    }
+    cocktailTitle.innerText = cocktail.name;
+    ingredientsEl.innerText = "Ingredients: " + cocktail.ingredients;
+    preparationEl.innerText = "Preparation: " + cocktail.preparation;
+    cocktailImage.src = cocktail.image;
+    cocktailImage.alt = cocktail.name;
+  }
 
-    // Crear e insertar la nueva imagen después de la preparación
-    if (cocktail.image) {
-        const imageElement = document.createElement("img");
-        imageElement.src = cocktail.image;
-        imageElement.alt = cocktail.name;
-        imageElement.id = "cocktail-image";
+  function backToMain() {
+    barMenu.classList.add("hidden");
+    cocktailDetails.classList.add("hidden");
+    mainMenu.classList.remove("hidden");
+  }
 
-        // Insertar la imagen después del texto de preparación
-        const preparationElement = document.getElementById("preparation");
-        preparationElement.parentNode.insertBefore(imageElement, preparationElement.nextSibling);
-    } else {
-        console.error("Imagen no encontrada para " + cocktail.name);
-    }
-}
+  function backToBarMenu() {
+    cocktailDetails.classList.add("hidden");
+    barMenu.classList.remove("hidden");
+  }
 
+  document.querySelectorAll(".bar-button").forEach(btn => {
+    btn.addEventListener("click", () => showBarMenu(btn.dataset.bar));
+  });
 
-function backToMain() {
-    document.getElementById("bar-menu").classList.add("hidden");
-    document.getElementById("main-menu").classList.remove("hidden");
-}
-
-function backToBarMenu() {
-    document.getElementById("cocktail-details").classList.add("hidden");
-    document.getElementById("bar-menu").classList.remove("hidden");
-}
+  document.getElementById("back-to-main").addEventListener("click", backToMain);
+  document.getElementById("back-to-bar").addEventListener("click", backToBarMenu);
+});

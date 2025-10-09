@@ -1,205 +1,180 @@
-/* === ESTILO GENERAL === */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; /* no centramos verticalmente, así puede crecer */
-    min-height: 100vh; /* deja crecer el contenido si es más alto */
-    background-color: #2E2E2E; /* Gris oscuro */
-    color: #EAEAEA; /* Gris claro */
-    overflow-x: hidden; /* evita scroll horizontal en móviles */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  background-color: #2E2E2E;
+  color: #EAEAEA;
+  overflow-x: hidden;
 }
 
-/* === CLASES DE UTILIDAD === */
 .hidden {
-    display: none;
+  display: none;
 }
 
 /* === MENÚ PRINCIPAL === */
 #main-menu {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    text-align: center;
-    position: relative;
-    width: 100%;
-    min-height: 100vh;
-    padding: 20px;
-    box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  min-height: 100vh;
+  padding: 20px;
 }
 
-/* Título */
 #main-menu h1 {
-    margin-bottom: 20px;
-    color: #ddd;
+  margin-bottom: 20px;
+  color: #ddd;
 }
 
-/* === TRANSICIONES ENTRE SECCIONES === */
-#bar-menu,
-#cocktail-details,
-#main-menu {
-    transition: opacity 0.4s ease, transform 0.4s ease;
-    opacity: 0;
-    transform: translateY(10px);
+/* === TRANSICIONES === */
+#bar-menu, #cocktail-details, #main-menu {
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  opacity: 0;
+  transform: translateY(10px);
+}
+#bar-menu:not(.hidden), #cocktail-details:not(.hidden), #main-menu:not(.hidden) {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-#bar-menu:not(.hidden),
-#cocktail-details:not(.hidden),
-#main-menu:not(.hidden) {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* === SECCIÓN DE LISTA DE TRAGOS === */
+/* === LISTA DE TRAGOS === */
 #bar-menu {
-    width: 100%;
-    max-width: 500px; /* buen ancho para desktop */
-    margin: 0 auto;
-    overflow-y: auto;
-    max-height: 90vh; /* permite scroll dentro de viewport */
-    padding: 10px;
-    box-sizing: border-box;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  max-height: 90vh;
 }
 
-/* Scroll personalizado */
 #bar-menu::-webkit-scrollbar {
-    width: 6px;
+  width: 6px;
 }
 #bar-menu::-webkit-scrollbar-thumb {
-    background-color: #007bff;
-    border-radius: 3px;
+  background-color: #007bff;
+  border-radius: 3px;
 }
 
-/* === BOTONES DEL MENÚ PRINCIPAL === */
 .bar-button {
-    padding: 15px 30px;
-    margin: 10px 0;
-    font-size: 18px;
-    background-color: #007bff; /* Azul brillante */
-    color: #FFFFFF;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    width: 200px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  padding: 15px 30px;
+  margin: 10px 0;
+  font-size: 18px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 200px;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
-
 .bar-button:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
 
-/* === LISTA DE CÓCTELES === */
+/* === LISTA === */
 ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 ul li {
-    padding: 12px;
-    margin: 8px 0;
-    background-color: #111;
-    border: 1px solid #007bff;
-    border-radius: 8px;
-    text-align: center;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+  padding: 12px;
+  margin: 8px 0;
+  background-color: #111;
+  border: 1px solid #007bff;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
 }
-
 ul li:hover {
-    background-color: #007bff;
-    color: white;
-    transform: scale(1.02);
+  background-color: #007bff;
+  color: white;
+  transform: scale(1.02);
 }
 
-/* === DETALLES DEL CÓCTEL === */
-#ingredients,
-#preparation {
-    margin: 10px 20px;
-    line-height: 1.5;
+#ingredients, #preparation {
+  margin: 10px 20px;
+  line-height: 1.5;
+  text-align: center;
 }
 
-h1, h2 {
-    text-align: center;
-}
-
-/* === IMAGEN DEL TRAGO === */
 #cocktail-image {
-    display: block;
-    margin: 20px auto;
-    max-width: 80%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  display: block;
+  margin: 20px auto;
+  max-width: 80%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* === BOTONES GENÉRICOS === */
 button {
-    margin: 10px;
-    padding: 10px 15px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  margin: 10px;
+  padding: 10px 15px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
-
 button:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
 
-/* === RESPONSIVE DESIGN === */
-
-/* Para tablets y móviles grandes */
+/* === RESPONSIVE === */
 @media (max-width: 768px) {
-    body {
-        align-items: flex-start;
-    }
+  #main-menu h1 {
+    font-size: 1.8em;
+  }
 
-    #bar-menu {
-        max-width: 90%;
-        max-height: 80vh;
-    }
+  .bar-button {
+    width: 90%;
+    font-size: 16px;
+    padding: 12px;
+  }
 
-    .bar-button {
-        width: 100%;
-        font-size: 16px;
-        padding: 12px;
-    }
+  ul li {
+    font-size: 16px;
+    padding: 10px;
+  }
 
-    ul li {
-        font-size: 16px;
-        padding: 10px;
-    }
+  #bar-menu {
+    max-width: 95%;
+    max-height: 80vh;
+  }
 
-    #cocktail-image {
-        max-width: 90%;
-    }
+  #cocktail-image {
+    max-width: 90%;
+  }
 }
 
-/* Para teléfonos pequeños (como 320px) */
 @media (max-width: 400px) {
-    #main-menu {
-        padding: 10px;
-    }
+  #main-menu {
+    padding: 10px;
+  }
 
-    .bar-button {
-        font-size: 14px;
-        padding: 10px;
-    }
+  .bar-button {
+    font-size: 14px;
+    padding: 10px;
+  }
 
-    ul li {
-        font-size: 14px;
-        padding: 8px;
-    }
+  ul li {
+    font-size: 14px;
+    padding: 8px;
+  }
 
-    #bar-menu {
-        max-height: 75vh;
-    }
+  #bar-menu {
+    max-height: 75vh;
+  }
 }
