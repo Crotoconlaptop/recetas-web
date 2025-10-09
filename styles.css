@@ -1,85 +1,147 @@
+/* === ESTILO GENERAL === */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #2E2E2E; /* Gris Oscuro */
-    color: #EAEAEA; /* Gris Claro para el texto */
-
-
-    
+    align-items: flex-start; /* no centramos verticalmente, así puede crecer */
+    min-height: 100vh; /* deja crecer el contenido si es más alto */
+    background-color: #2E2E2E; /* Gris oscuro */
+    color: #EAEAEA; /* Gris claro */
+    overflow-x: hidden; /* evita scroll horizontal en móviles */
 }
 
-
-
+/* === CLASES DE UTILIDAD === */
 .hidden {
     display: none;
-
 }
 
+/* === MENÚ PRINCIPAL === */
 #main-menu {
     display: flex;
-    flex-direction: column; /* Dispone los botones en una columna */
-    align-items: center; /* Centra los botones horizontalmente */
-    justify-content: center; /* Centra los botones verticalmente en la pantalla */
-    height: 100vh; /* Asegura que el contenedor ocupe toda la altura de la ventana */
-    text-align: center; /* Centra el texto del título */
-    position: absolute; /* Asegura que el contenedor principal se posicione correctamente */
-    width: 100%; /* Ocupa el ancho completo de la pantalla */
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
+/* Título */
 #main-menu h1 {
     margin-bottom: 20px;
-    color: #ddd; /* Gris Claro */
+    color: #ddd;
 }
 
-/* Transiciones suaves para los menús */
-#bar-menu, #cocktail-details, #main-menu {
+/* === TRANSICIONES ENTRE SECCIONES === */
+#bar-menu,
+#cocktail-details,
+#main-menu {
     transition: opacity 0.4s ease, transform 0.4s ease;
     opacity: 0;
     transform: translateY(10px);
 }
 
-#bar-menu:not(.hidden), #cocktail-details:not(.hidden), #main-menu:not(.hidden) {
+#bar-menu:not(.hidden),
+#cocktail-details:not(.hidden),
+#main-menu:not(.hidden) {
     opacity: 1;
     transform: translateY(0);
-    
 }
 
-/* Estilo del texto de ingredientes y preparación */
-#ingredients, #preparation {
-    margin: 10px 20px; /* Margen pequeño alrededor del texto */
-    line-height: 1.5; /* Mejorar la legibilidad */
+/* === SECCIÓN DE LISTA DE TRAGOS === */
+#bar-menu {
+    width: 100%;
+    max-width: 500px; /* buen ancho para desktop */
+    margin: 0 auto;
+    overflow-y: auto;
+    max-height: 90vh; /* permite scroll dentro de viewport */
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* Scroll personalizado */
+#bar-menu::-webkit-scrollbar {
+    width: 6px;
+}
+#bar-menu::-webkit-scrollbar-thumb {
+    background-color: #007bff;
+    border-radius: 3px;
+}
+
+/* === BOTONES DEL MENÚ PRINCIPAL === */
+.bar-button {
+    padding: 15px 30px;
+    margin: 10px 0;
+    font-size: 18px;
+    background-color: #007bff; /* Azul brillante */
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.bar-button:hover {
+    background-color: #0056b3;
+}
+
+/* === LISTA DE CÓCTELES === */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul li {
+    padding: 12px;
+    margin: 8px 0;
+    background-color: #111;
+    border: 1px solid #007bff;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+ul li:hover {
+    background-color: #007bff;
+    color: white;
+    transform: scale(1.02);
+}
+
+/* === DETALLES DEL CÓCTEL === */
+#ingredients,
+#preparation {
+    margin: 10px 20px;
+    line-height: 1.5;
 }
 
 h1, h2 {
     text-align: center;
 }
 
-.bar-button {
-    padding: 15px 30px;
-    margin: 10px 0;
-    font-size: 18px;
-    background-color: #007bff; /* Azul Brillante */
-    color: #FFFFFF; /* Blanco */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    width: 200px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra */
-}
-/* Efecto hover para los botones */
-.bar-button:hover {
-    background-color: #0056b3; /* Azul Oscuro */
+/* === IMAGEN DEL TRAGO === */
+#cocktail-image {
+    display: block;
+    margin: 20px auto;
+    max-width: 80%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
+/* === BOTONES GENÉRICOS === */
 button {
     margin: 10px;
-    padding: 10px;
+    padding: 10px 15px;
     font-size: 16px;
     background-color: #007bff;
     color: white;
@@ -88,55 +150,56 @@ button {
     cursor: pointer;
 }
 
-ul {
-    list-style: none;
-    padding: 0;
-    
-}
-
-ul li {
-    padding: 10px;
-    margin: 5px;
+button:hover {
     background-color: #0056b3;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    cursor: pointer;
-    
 }
 
-ul li:hover {
-    background-color: #e9ecef;
-}
+/* === RESPONSIVE DESIGN === */
 
-#bar-menu {
-    max-height: calc(100vh - 60px); /* Ajusta según el tamaño de tu header o botones */
-    overflow-y: auto;
-    padding-bottom: 60px; /* Espacio para el botón volver */
-}
-
-/* Agregar estilo para la imagen del trago */
-#cocktail-image {
-    display: block;
-    margin: 20px auto; /* Auto margenes horizontales para centrar */
-    max-width: 50%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-@media (max-width: 320px) {
-    #content {
-        padding: 10px;
-        font-size: 14px;
+/* Para tablets y móviles grandes */
+@media (max-width: 768px) {
+    body {
+        align-items: flex-start;
     }
 
-    #b1, #b2 {
-        font-size: 14px;
-        padding: 8px 12px;
+    #bar-menu {
+        max-width: 90%;
+        max-height: 80vh;
     }
 
-    .menu-item {
+    .bar-button {
+        width: 100%;
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    ul li {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    #cocktail-image {
+        max-width: 90%;
+    }
+}
+
+/* Para teléfonos pequeños (como 320px) */
+@media (max-width: 400px) {
+    #main-menu {
+        padding: 10px;
+    }
+
+    .bar-button {
         font-size: 14px;
         padding: 10px;
+    }
+
+    ul li {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    #bar-menu {
+        max-height: 75vh;
     }
 }
