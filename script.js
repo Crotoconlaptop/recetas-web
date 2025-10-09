@@ -33,31 +33,31 @@ document.addEventListener("DOMContentLoaded", () => {
             name: "BIG APPLE", 
             ingredients: "80ml apple juice, 60ml pomegranate juice, 20ml basil cordial, 20ml peach+yuzu", 
             preparation: "shake all ingredientes and strain in to mini V-shape glass, garnish with dehydrated apple, 3 basil leaves", 
-            image: "images/big-apple.jpg" 
+            image: "images/bigapple.jpeg" 
         },
         { 
             name: "THE WALL OF 38", 
             ingredients: "40ml italian spritz, 10ml amaretti, 20ml rosemary and basil essence, 25ml lemon, top sparkling wine", 
             preparation: "mix well all ingredients, shake well and pour it in white wine glass with ice cubes, garnish with rosemary spray", 
-            image: "images/the-waal-of-38.jpg" 
+            image: "images/wall28.jpeg" 
         },
         { 
             name: "PARK AVENUE", 
             ingredients: "25ml passion fruit puree, 40ml spiced cane, 15ml granadine, 15ml lemon, top with sparkling wine", 
             preparation: "pour all ingredients, shake well, pour in coupe top up with sparkling wine and garnish with a leaf coin", 
-            image: "images/park-avenue.jpg" 
+            image: "images/parkavenue.jpeg" 
         },
         { 
             name: "SOCIALITE", 
             ingredients: "30ml amaretti, 30ml peach and jasmine syrup, 20ml lemon juice, 3tbs peach puree, 5 drops foamee", 
             preparation: "dry shake all the ingredients and strain in to martini classic glass, garnish with 3 edible flowers", 
-            image: "images/socialite.jpg" 
+            image: "images/socialite.jpeg" 
         },
         { 
             name: "ICONIC", 
             ingredients: "80ml pomegranate juice, 10ml lime juice, 20ml pomegranate molasses, 20ml raspberry puree, 20ml simple syrup, 40ml rosso", 
             preparation: "shake all ingredients and double starin, pour into copper coupe glass and garnish with pomegranate seeds and mint sprig", 
-            image: "images/iconic.jpg" 
+            image: "images/iconic.jpeg" 
         },
         { 
             name: "BERRY PATCH", 
@@ -75,13 +75,13 @@ document.addEventListener("DOMContentLoaded", () => {
             name: "GREEK HOUSE", 
             ingredients: "10ml dark cane, 40ml amaretti, 20ml lime sherbit, 10ml thyme honey, 25ml lime juice, 20ml yogurt greek", 
             preparation: "quick stir all ingredients and pour in copper cup with ice", 
-            image: "images/no-image.jpg" 
+            image: "images/greekhouse.jpeg" 
         },
         { 
             name: "PINK ELEGANCE", 
             ingredients: "80ml cranberry juice, 40ml strawberry puree, 20ml hibiscus/lemongrass syrup, top with passion fruit and vanilla foam", 
             preparation: "pour all the ingredients and stir, strain into diamond coupe, top up with foame, garnish with banbou knot", 
-            image: "images/no-image.jpg" 
+            image: "images/pinkelegance.jpeg" 
         },
         { 
             name: "COOL CARCADE", 
