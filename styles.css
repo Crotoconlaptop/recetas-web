@@ -1,17 +1,15 @@
-/* style.css (CORRECCIÓN FINAL DE CENTRADO) */
-
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   display: flex;
-  /* 🚨 CAMBIO CLAVE: Centrado Horizontal y Vertical Perfecto */
   justify-content: center; /* Centra horizontalmente */
   align-items: center; /* Centra verticalmente */
-  min-height: 100vh; /* Asegura que ocupa toda la altura de la ventana */
+  min-height: 100vh;
   background-color: #2E2E2E;
   color: #EAEAEA;
   overflow-x: hidden;
+  overflow-y: scroll; /* <--- SOLUCIÓN A: Mantiene el scrollbar siempre visible */
 }
 
 .hidden {
@@ -26,10 +24,10 @@ body {
   justify-content: center;
   text-align: center;
   width: 100%;
-  max-width: 600px; /* Limita el ancho */
+  max-width: 600px; 
   padding: 20px;
-  /* 🚨 CAMBIO CLAVE: margin: auto para centrado total dentro del body Flexbox */
-  margin: auto; 
+  /* SOLUCIÓN B: Dejamos que 'align-items: center' del body centre esto */
+  margin: 0; 
 }
 
 #main-menu h1 {
@@ -50,19 +48,18 @@ body {
 
 /* === LISTA DE TRAGOS === */
 #bar-menu {
-  display: flex; 
+  display: flex;
   flex-direction: column;
-  align-items: center; /* centra horizontalmente los elementos de la lista */
+  align-items: center; 
   justify-content: flex-start;
   width: 100%;
   max-width: 600px;
-  /* 🚨 CAMBIO CLAVE: Centrado horizontal y margen superior/inferior automático */
-  margin: 0 auto; 
+  margin: 0 auto; /* Centrado horizontal */
   padding: 10px 20px;
   box-sizing: border-box;
   overflow-y: auto;
-  /* 🚨 Ajuste de altura para que el scroll se mantenga visible y centrado */
-  max-height: 80vh; 
+  /* SOLUCIÓN B: Ajuste ligero para que no desborde si es posible */
+  max-height: 90vh; 
   text-align: center;
 }
 
