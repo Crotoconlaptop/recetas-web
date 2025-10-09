@@ -3,8 +3,8 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: center; /* ✅ Keeps content horizontal center */
+  align-items: center; /* ⚠️ Change from flex-start to center */
   min-height: 100vh;
   background-color: #2E2E2E;
   color: #EAEAEA;
@@ -23,7 +23,8 @@ body {
   justify-content: center;
   text-align: center;
   width: 100%;
-  min-height: 100vh;
+  /* REMOVE min-height: 100vh; */ /* ❌ This forces it to take up the whole viewport, causing the shift when bar-menu appears */
+  max-width: 600px; /* New: Add max-width to limit size like bar-menu */
   padding: 20px;
 }
 
@@ -45,9 +46,9 @@ body {
 
 /* === LISTA DE TRAGOS === */
 #bar-menu {
-  display: flex;
+  display: flex; /* Keep this */
   flex-direction: column;
-  align-items: center;         /* ✅ centra horizontalmente */
+  align-items: center; /* ✅ centra horizontalmente */
   justify-content: flex-start; /* mantiene scroll desde arriba */
   width: 100%;
   max-width: 600px;
@@ -55,8 +56,8 @@ body {
   padding: 10px 20px;
   box-sizing: border-box;
   overflow-y: auto;
-  max-height: 90vh;
-  text-align: center;          /* centra el texto */
+  max-height: 90vh; /* Keep this to allow scrolling */
+  text-align: center;
 }
 
 #bar-menu::-webkit-scrollbar {
