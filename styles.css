@@ -3,8 +3,8 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: center; /* ✅ Keeps content horizontal center */
-  align-items: center; /* ⚠️ Change from flex-start to center */
+  justify-content: center; /* Centra horizontalmente el contenido */
+  align-items: flex-start; /* Permite que el contenido se posicione desde arriba */
   min-height: 100vh;
   background-color: #2E2E2E;
   color: #EAEAEA;
@@ -23,9 +23,9 @@ body {
   justify-content: center;
   text-align: center;
   width: 100%;
-  /* REMOVE min-height: 100vh; */ /* ❌ This forces it to take up the whole viewport, causing the shift when bar-menu appears */
-  max-width: 600px; /* New: Add max-width to limit size like bar-menu */
+  max-width: 600px; /* Limita el ancho como #bar-menu */
   padding: 20px;
+  margin-top: 10vh; /* Centrado vertical: mueve el menú hacia el centro de la pantalla */
 }
 
 #main-menu h1 {
@@ -46,18 +46,19 @@ body {
 
 /* === LISTA DE TRAGOS === */
 #bar-menu {
-  display: flex; /* Keep this */
+  display: flex;
   flex-direction: column;
-  align-items: center; /* ✅ centra horizontalmente */
-  justify-content: flex-start; /* mantiene scroll desde arriba */
+  align-items: center; /* centra horizontalmente los elementos de la lista */
+  justify-content: flex-start;
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
   padding: 10px 20px;
   box-sizing: border-box;
   overflow-y: auto;
-  max-height: 90vh; /* Keep this to allow scrolling */
+  max-height: 90vh;
   text-align: center;
+  margin-top: 10vh; /* Se alinea con el #main-menu */
 }
 
 #bar-menu::-webkit-scrollbar {
