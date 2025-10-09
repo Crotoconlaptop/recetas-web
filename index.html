@@ -3,31 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-    <title>MOCKTAILS AND PREPARATIONS GUIDE</title>
+    <title>Mocktails & Preparations Guide</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-        <div id="main-menu">
+
+    <section id="main-menu">
+        <header>
             <h1>Mocktails<br/> and<br/> Preparations<br/> Guide</h1>
-            <button class="bar-button" onclick="showBarMenu('jackie')">Jackie</button>
-            <button class="bar-button" onclick="showBarMenu('stregis')">St. Regis Bar</button>
-        </div>
+        </header>
+        <main>
+            <button class="bar-button" data-bar="jackie">Jackie</button>
+            <button class="bar-button" data-bar="stregis">St. Regis Bar</button>
+        </main>
+    </section>
 
-    
+    <section id="bar-menu" class="hidden">
+        <header>
+             <button id="back-to-main" class="back-button">← Volver</button>
+             <h2 id="bar-title"></h2>
+        </header>
+        <main>
+            <input type="text" id="search-bar" placeholder="🔍 Buscar un trago...">
+            <ul id="cocktails-list"></ul>
+        </main>
+    </section>
 
-    <div id="bar-menu" class="hidden">
-        <button id="b1" onclick="backToMain()">Back</button>
-        <h2 id="bar-title"></h2>
-        <ul id="cocktails-list"></ul>
-    </div>
-
-    <div id="cocktail-details" class="hidden">
-        <button id="b2" onclick="backToBarMenu()">Back</button>
-        <h2 id="cocktail-title"></h2>
-        <p id="ingredients"></p>
-        <p id="preparation"></p>
-    </div>
+    <section id="cocktail-details" class="hidden">
+        <header>
+            <button id="back-to-bar" class="back-button">← Volver a la lista</button>
+        </header>
+        <main>
+            <h2 id="cocktail-title"></h2>
+            <img id="cocktail-image" src="" alt="">
+            <h3>Ingredientes:</h3>
+            <p id="ingredients"></p>
+            <h3>Preparación:</h3>
+            <p id="preparation"></p>
+        </main>
+    </section>
 
     <script src="script.js"></script>
 </body>
