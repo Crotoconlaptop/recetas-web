@@ -1,11 +1,14 @@
+/* style.css (CORRECCIÓN FINAL DE CENTRADO) */
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: center; /* Centra horizontalmente el contenido */
-  align-items: flex-start; /* Permite que el contenido se posicione desde arriba */
-  min-height: 100vh;
+  /* 🚨 CAMBIO CLAVE: Centrado Horizontal y Vertical Perfecto */
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  min-height: 100vh; /* Asegura que ocupa toda la altura de la ventana */
   background-color: #2E2E2E;
   color: #EAEAEA;
   overflow-x: hidden;
@@ -23,9 +26,10 @@ body {
   justify-content: center;
   text-align: center;
   width: 100%;
-  max-width: 600px; /* Limita el ancho como #bar-menu */
+  max-width: 600px; /* Limita el ancho */
   padding: 20px;
-  margin-top: 10vh; /* Centrado vertical: mueve el menú hacia el centro de la pantalla */
+  /* 🚨 CAMBIO CLAVE: margin: auto para centrado total dentro del body Flexbox */
+  margin: auto; 
 }
 
 #main-menu h1 {
@@ -46,19 +50,20 @@ body {
 
 /* === LISTA DE TRAGOS === */
 #bar-menu {
-  display: flex;
+  display: flex; 
   flex-direction: column;
   align-items: center; /* centra horizontalmente los elementos de la lista */
   justify-content: flex-start;
   width: 100%;
   max-width: 600px;
-  margin: 0 auto;
+  /* 🚨 CAMBIO CLAVE: Centrado horizontal y margen superior/inferior automático */
+  margin: 0 auto; 
   padding: 10px 20px;
   box-sizing: border-box;
   overflow-y: auto;
-  max-height: 90vh;
+  /* 🚨 Ajuste de altura para que el scroll se mantenga visible y centrado */
+  max-height: 80vh; 
   text-align: center;
-  margin-top: 10vh; /* Se alinea con el #main-menu */
 }
 
 #bar-menu::-webkit-scrollbar {
